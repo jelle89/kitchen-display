@@ -1,8 +1,8 @@
-import Order from "../models/orderModel.js";
+import OrderService from "../services/orderService.js"
 
 export const createOrder = async (req, res) => {
     try {
-        await Order.create(req.body);
+        await OrderService.Create(req);
         res.json({
             "message": "Order Created"
         });
@@ -13,11 +13,7 @@ export const createOrder = async (req, res) => {
 
 export const deleteOrder = async (req, res) => {
     try {
-        await Order.destroy({
-            where: {
-                id: req.params.id
-            }
-        });
+        await OrderService.Delete(req);
         res.json({
             "message": "Order Deleted"
         });
@@ -28,7 +24,7 @@ export const deleteOrder = async (req, res) => {
 
 export const getAllOrders = async (req, res) => {
     try {
-        const orders = await Order.findAll();
+        const orders = await OrderService.FindAll();
         res.json(orders);
     } catch (error) {
         res.json({ message: error.message });
@@ -37,11 +33,7 @@ export const getAllOrders = async (req, res) => {
 
 export const getOrderById = async (req, res) => {
     try {
-        const order = await Order.findAll({
-            where: {
-                id: req.params.id
-            }
-        });
+        const order = await OrderService.FindById(req);
         res.json(order[0]);
     } catch (error) {
         res.json({ message: error.message });
@@ -50,14 +42,7 @@ export const getOrderById = async (req, res) => {
 
 export const updateOrder = async (req, res) => {
     try {
-        await Order.update(req.body, {
-            where: {
-                id: req.params.id
-            }
-        });
-        res.json({
-            "message": "Order Updated"
-        });
+        await OrderService.Update(req);
     } catch (error) {
         res.json({ message: error.message });
     }

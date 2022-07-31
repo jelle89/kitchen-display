@@ -1,15 +1,17 @@
-# (If you are in this folder):
+# Kitchen display
+
+## (If you are in this folder):
 - cd ../server
 - npm install
 - cd ../client
 - npm install
 
-# *open two tabs of your terminal*
+## *open two tabs of your terminal*
 
-terminal1 :
+## terminal 1:
 - cd server
 - nodemon index
 
-# terminal 2:
+## terminal 2:
 - cd client
 - npm run start
