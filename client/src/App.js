@@ -3,22 +3,22 @@ import OrderList from "./components/OrderList";
 import EditOrder from "./components/EditOrder";
 
 function App() {
-  return (
-      <Router>
-        <div>
-          <div>
+    return (
+        <Router>
             <div>
-              <Routes>
-                <Route exact path="/" element={ <OrderList /> }>
-                </Route>
-                <Route path="/edit/:id" element={ <EditOrder /> }>
-                </Route>
-              </Routes>
+                <div>
+                    <div>
+                        <Routes>
+                            <Route exact path="/" element={<OrderList/>}>
+                            </Route>
+                            <Route path="/edit/:id" element={<EditOrder/>}>
+                            </Route>
+                        </Routes>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
-      </Router>
-  );
+        </Router>
+    );
 }
 
 export default App;
