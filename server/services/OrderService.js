@@ -27,13 +27,6 @@ const OrderService = {
                 id: req.params.id
             }
         });
-    },
-    CheckStatus: (req) => {
-        return Order.update(req.body, {
-            where: {
-                id: req.params.id
-            }
-        });
     }
 }
 

@@ -1,11 +1,11 @@
 import express from "express";
 
 import {
-    getAllOrders,
     createOrder,
+    deleteOrder,
+    getAllOrders,
     getOrderById,
-    updateOrder,
-    deleteOrder
+    updateOrder
 } from "../controllers/OrderController.js";
 
 const router = express.Router();
