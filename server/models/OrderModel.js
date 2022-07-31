@@ -1,19 +1,19 @@
-import { Sequelize } from "sequelize";
+import {Sequelize} from "sequelize";
 import db from "../config/database.js";
 
-const { DataTypes } = Sequelize;
+const {DataTypes} = Sequelize;
 
-const Order = db.define('orders',{
-    description:{
+const Order = db.define('orders', {
+    description: {
         type: DataTypes.STRING
     },
-    status:{
+    status: {
         type: DataTypes.STRING
     },
-    createdAt:{
+    createdAt: {
         type: DataTypes.DATE
     },
-    updatedAt:{
+    updatedAt: {
         type: DataTypes.DATE
     }
 });

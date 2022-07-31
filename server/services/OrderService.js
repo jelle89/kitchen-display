@@ -1,4 +1,4 @@
-import Order from "../models/orderModel.js";
+import Order from "../models/OrderModel.js";
 
 const OrderService = {
     Create: (req) => {
@@ -22,6 +22,13 @@ const OrderService = {
         });
     },
     Update: (req) => {
+        return Order.update(req.body, {
+            where: {
+                id: req.params.id
+            }
+        });
+    },
+    CheckStatus: (req) => {
         return Order.update(req.body, {
             where: {
                 id: req.params.id

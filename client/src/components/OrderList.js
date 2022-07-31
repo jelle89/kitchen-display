@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import {useState, useEffect} from 'react'
 import axios from "axios";
 import {Link} from "react-router-dom";
 
@@ -32,7 +32,6 @@ const OrderList = () => {
         checked.forEach((item) => {
             changeStatus(item, status);
         });
-        getOrders();
     };
 
     const deleteOrder = async (id) => {
@@ -44,7 +43,6 @@ const OrderList = () => {
         checked.forEach((item) => {
             deleteOrder(item);
         });
-        getOrders();
     };
 
     const getOrders = async () => {
@@ -65,11 +63,11 @@ const OrderList = () => {
     return (
         <div>
             <h1>Kitchen Display</h1>
-            <button onClick={ () => addOrder() } className="button-1 orange">Add order</button>
+            <button onClick={() => addOrder()} className="generic-button orange">Add order</button>
             <table className="styled-table">
                 <thead>
                 <tr>
-                    <th />
+                    <th/>
                     <th>ID</th>
                     <th>Description</th>
                     <th>Status</th>
@@ -77,38 +75,45 @@ const OrderList = () => {
                 </tr>
                 </thead>
                 <tbody>
-                { orders.map((order) => (
-                    <tr key={ order.id }>
+                {orders.map((order) => (
+                    <tr key={order.id}>
                         <td>
-                            <input value={order.id} type="checkbox" onChange={handleCheck} />
+                            <input value={order.id} type="checkbox" onChange={handleCheck}/>
                         </td>
-                        <td>{ order.id }</td>
+                        <td>{order.id}</td>
                         <td>
-                            <Link to={`/edit/${order.id}`} className="button-1">{ order.description }</Link>
+                            <Link to={`/edit/${order.id}`} className="generic-button">{order.description}</Link>
                         </td>
-                        <td>{ order.status }</td>
+                        <td>{order.status}</td>
                         <td>
-                            <button onClick={ () => changeStatus(order.id, 'open') } className="button-1 yellow">Open</button>
-                            <button onClick={ () => changeStatus(order.id, 'preparing') } className="button-1 orange">Preparing</button>
-                            <button onClick={ () => changeStatus(order.id, 'served') } className="button-1 green">Served</button>
-                            <button onClick={ () => deleteOrder(order.id) } className="button-1 red">Delete</button>
-                            <Link to={`/edit/${order.id}`} className="button-1 yellow">Edit</Link>
+                            <button onClick={() => changeStatus(order.id, 'open')}
+                                    className="generic-button yellow">Open
+                            </button>
+                            <button onClick={() => changeStatus(order.id, 'preparing')}
+                                    className="generic-button orange">Preparing
+                            </button>
+                            <button onClick={() => changeStatus(order.id, 'served')}
+                                    className="generic-button green">Served
+                            </button>
+                            <button onClick={() => deleteOrder(order.id)} className="generic-button red">Delete</button>
+                            <Link to={`/edit/${order.id}`} className="generic-button yellow">Edit description</Link>
                         </td>
                     </tr>
                 )) }
 
                 </tbody>
             </table>
-            <div> Change in bulk:
+            <div>
+                <h2>Change in bulk:</h2>
                 <button onClick={() => changeStatuses(checked, 'open')}
-                        className="button-1 yellow">Open</button>
+                        className="generic-button yellow">Open</button>
                 <button onClick={() => changeStatuses(checked, 'preparing')}
-                        className="button-1 orange">Preparing
+                        className="generic-button orange">Preparing
                 </button>
                 <button onClick={() => changeStatuses(checked, 'served')}
-                        className="button-1 green">Served
+                        className="generic-button green">Served
                 </button>
-                <button onClick={() => deleteOrders(checked)} className="button-1 red">Delete</button>
+                <button onClick={() => deleteOrders(checked)} className="generic-button red">Delete</button>
             </div>
         </div>
     )

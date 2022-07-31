@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
 import OrderList from "./components/OrderList";
 import EditOrder from "./components/EditOrder";
 
