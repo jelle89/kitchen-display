@@ -3,7 +3,7 @@
 ## (If you are in this folder):
 - cd server
 - npm install
-- cd client
+- cd ../client
 - npm install
 
 ## *open two tabs of your terminal*
