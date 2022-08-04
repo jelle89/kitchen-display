@@ -34,7 +34,15 @@ const OrderList = () => {
         });
     };
 
+    const updateCheckList = (id) => {
+        let updatedList = [...checked];
+        updatedList.splice(checked.indexOf(id), 1);
+        setChecked(updatedList);
+    }
+
     const deleteOrder = async (id) => {
+        // Delete order from checked list if order is deleted
+        updateCheckList(id);
         await axios.delete(`http://localhost:3001/orders/${id}`);
         getOrders();
     }
